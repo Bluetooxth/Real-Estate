@@ -5,7 +5,7 @@ import { getDataFromToken } from "@/app/helpers/getDataFromToken";
 
 databaseConnection();
 
-export async function me(request: NextRequest) {
+export async function GET(request: NextRequest) {
   try {
     const token = await getDataFromToken(request);
 
