@@ -68,7 +68,7 @@ const Testimonials = () => {
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 flex flex-col justify-start items-start gap-2 p-5 rounded-lg card w-80"
+                className="flex-shrink-0 flex flex-col justify-start items-start gap-2 p-5 rounded-lg cursor-pointer card w-80"
                 style={{ whiteSpace: 'normal' }}
               >
                 <h3 className="text-2xl font-medium">{testimonial.name}</h3>

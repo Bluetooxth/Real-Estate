@@ -44,8 +44,8 @@ export async function POST(request: Request) {
 
     await newUser.save();
 
-    return NextResponse.json({ message: "User created" }, { status: 200 });
+    return NextResponse.json({ message: "User signup successful" }, { status: 200 });
   } catch (error) {
-    return NextResponse.json({ message: "Server error" }, { status: 500 });
+    return NextResponse.json({ message: "Internal server error" }, { status: 500 });
   }
 }

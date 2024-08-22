@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { MdOutlineRealEstateAgent } from "react-icons/md";
 
 const Footer = () => {
 
@@ -53,7 +54,7 @@ const Footer = () => {
         <footer className="flex flex-col justify-center items-center w-full footer pt-10 footer">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 lg:container px-7">
                 <div className="flex flex-col justify-start h-full">
-                    <h1 className="text-2xl md:text-3xl font-medium">Real Estate</h1>
+                    <h1 className="text-2xl md:text-3xl font-medium flex items-center gap-2"><MdOutlineRealEstateAgent /> Real Estate</h1>
                     <ul className="flex flex-col gap-2 items-start mt-2">
                         <li className="text-lg">Your trusted partner in finding your dream property. Explore the best deals and services with us.</li>
                     </ul>

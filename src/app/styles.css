@@ -1,5 +1,5 @@
 body {
-  background: #F4F6F0;
+  background: #e8f0fe;
   color: #18181a;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -10,13 +10,13 @@ body {
 
 .navbar, .footer {
   background: #152e4e;
-  color: #F4F6F0;
+  color: #e8f0fe;
   transition: 0.5s ease-in-out;
 }
 
 .btn {
   background: #527795;
-  color: #F4F6F0;
+  color: #e8f0fe;
   transition: 0.5s ease-in-out;
 }
 .btn:hover {
@@ -24,7 +24,7 @@ body {
 }
 
 .cardbtn{
-    background: #F4F6F0;
+    background: #e8f0fe;
     color: #18181b;
     transition: 0.5s ease-in-out;
 }
@@ -35,7 +35,7 @@ body {
 
 .card{
   background: linear-gradient(135deg, #152e4e 0%, #527795 100%);
-    color: #F4F6F0;
+    color: #e8f0fe;
     transition: 0.5s ease-in-out;
 }
 
@@ -44,7 +44,15 @@ body {
 }
 
 .hero {
-  color: #F4F6F0;
+  color: #e8f0fe;
+}
+
+.input{
+  border: 1px solid #152e4e;
+}
+
+.refer{
+  color: #152e4e;
 }
 
 h2{
