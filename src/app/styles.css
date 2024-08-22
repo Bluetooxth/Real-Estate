@@ -9,18 +9,18 @@ body {
 }
 
 .navbar, .footer {
-  background: #152e4e;
+  background: #005163;
   color: #e8f0fe;
   transition: 0.5s ease-in-out;
 }
 
 .btn {
-  background: #527795;
+  background: #005163;
   color: #e8f0fe;
   transition: 0.5s ease-in-out;
 }
 .btn:hover {
-  background: #152e4e;
+  background: #007994;
 }
 
 .cardbtn{
@@ -34,7 +34,7 @@ body {
 }
 
 .card{
-  background: linear-gradient(135deg, #152e4e 0%, #527795 100%);
+  background: #005163;
     color: #e8f0fe;
     transition: 0.5s ease-in-out;
 }
@@ -48,16 +48,16 @@ body {
 }
 
 .input{
-  border: 1px solid #152e4e;
+  border: 1px solid #005163;
 }
 
 .refer{
-  color: #152e4e;
+  color: #005163;
 }
 
 h2{
     padding-left: 12px;
-    border-left: 5px solid #152e4e;
+    border-left: 5px solid #005163;
 }
 
 ::-webkit-scrollbar {

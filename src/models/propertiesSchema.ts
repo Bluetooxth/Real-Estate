@@ -26,6 +26,10 @@ const propertiesSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    coverImage: {
+        type: String,
+        required: true,
+    },
     image: {
         type: String,
         required: true,
