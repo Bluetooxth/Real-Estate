@@ -27,8 +27,8 @@ const FAQ = () => {
 
     return (
         <section className='flex justify-center items-center w-full'>
-            <div className="flex flex-col justify-center items-start gap-5 lg:container px-7">
-                <h2 className='text-4xl font-medium self-start'>Frequently Asked Questions</h2>
+            <div className="flex flex-col justify-center items-start gap-5 lg:container px-7 w-full">
+                <h2 className='text-3xl lg:text-4xl font-medium self-start'>Frequently Asked Questions</h2>
                 <div className="grid grid-cols-1 items-stretch justify-start gap-5 w-full">
                     {faqs.map((faq, index) => (
                         <div key={index} className='flex flex-col justify-start items-start gap-2 rounded-lg overflow-hidden cursor-pointer w-full card'>

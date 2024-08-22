@@ -9,18 +9,18 @@ body {
 }
 
 .navbar, .footer {
-  background: #586471;
+  background: #152e4e;
   color: #F4F6F0;
   transition: 0.5s ease-in-out;
 }
 
 .btn {
-  background: #8290a0;
+  background: #527795;
   color: #F4F6F0;
   transition: 0.5s ease-in-out;
 }
 .btn:hover {
-  background: #586471;
+  background: #152e4e;
 }
 
 .cardbtn{
@@ -34,7 +34,7 @@ body {
 }
 
 .card{
-  background: linear-gradient(45deg, #586471 0%, #8290a0 100%);
+  background: linear-gradient(135deg, #152e4e 0%, #527795 100%);
     color: #F4F6F0;
     transition: 0.5s ease-in-out;
 }
@@ -49,7 +49,7 @@ body {
 
 h2{
     padding-left: 12px;
-    border-left: 5px solid #586471;
+    border-left: 5px solid #152e4e;
 }
 
 ::-webkit-scrollbar {

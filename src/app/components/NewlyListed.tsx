@@ -26,7 +26,7 @@ const NewlyListed = () => {
   return (
     <section className="flex justify-center items-center w-full">
       <div className="flex flex-col justify-center items-start gap-5 lg:container w-full px-7">
-        <h2 className="text-4xl font-medium self-start">
+        <h2 className="text-3xl lg:text-4xl font-medium self-start">
           Newly Listed Properties
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-stretch justify-start gap-5 w-full">

@@ -27,7 +27,7 @@ const Popular = () => {
   return (
     <section className='flex justify-center items-center w-full'>
         <div className="flex flex-col justify-center items-start gap-5 lg:container px-7">
-            <h2 className='text-4xl font-medium self-start'>Popular Properties</h2>
+            <h2 className='text-3xl lg:text-4xl font-medium self-start'>Popular Properties</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-stretch justify-start gap-5 w-full">
                 {properties.map((property, index) => (
                     <div key={index} className='flex flex-col justify-start items-center gap-2 rounded-lg overflow-hidden cursor-pointer w-full card'>
