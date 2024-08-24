@@ -1,27 +1,32 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import { IoIosArrowForward } from "react-icons/io";
-
+import PropertyCard from "./PropertyCard";
+import Link from "next/link";
+import axios from "axios";
 const Popular = () => {
-  const properties = [
+  const [properties, setProperties] = React.useState([
     {
-      title: "Villa in Bali",
-      price: "$450,000",
-      location: "Bali, Indonesia",
-      image: "/images/villa.jpg",
+      slug: "",
+      title: "",
+      price: "",
+      location: "",
+      image: "",
     },
-    {
-      title: "Apartment in Manila",
-      price: "$250,000",
-      location: "Manila, Philippines",
-      image: "/images/apartment.jpg",
-    },
-    {
-      title: "House in San Francisco",
-      price: "$2,500,000",
-      location: "San Francisco, California",
-      image: "/images/house.jpg",
-    },
-  ];
+  ]);
+
+  const fetchProperties = async () => {
+    try {
+      const response = await axios.get("/api/properties/get");
+      setProperties(response.data.properties.slice(0, 3));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchProperties();
+  }, []);
 
   return (
     <section className="flex justify-center items-center w-full">
@@ -31,31 +36,22 @@ const Popular = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-stretch justify-start gap-5 w-full">
           {properties.map((property, index) => (
-            <div
+            <PropertyCard
               key={index}
-              className="flex flex-col justify-start items-center gap-2 rounded-lg overflow-hidden cursor-pointer w-full card"
-            >
-              <div className="overflow-hidden w-full h-[250px]">
-                <img
-                  src={property.image}
-                  alt={property.title}
-                  className="w-full h-full transition-transform hover:scale-110 slow"
-                />
-              </div>
-              <div className="flex flex-col justify-start items-start gap-2 p-5 w-full">
-                <h3 className="text-2xl font-medium">{property.title}</h3>
-                <p className="text-2xl">{property.price}</p>
-                <p className="text-xl">{property.location}</p>
-                <button className="cardbtn text-lg font-medium px-5 py-2 rounded-lg w-full">
-                  View Property
-                </button>
-              </div>
-            </div>
+              slug={property.slug}
+              title={property.title}
+              price={property.price}
+              location={property.location}
+              image={property.image}
+            />
           ))}
         </div>
-        <button className="btn text-lg font-medium px-5 py-2 rounded-lg self-center mt-2 flex gap-2 items-center">
+        <Link
+          href="/properties"
+          className="btn text-lg font-medium px-5 py-2 rounded-lg self-center mt-2 flex gap-2 items-center"
+        >
           Explore all <IoIosArrowForward />
-        </button>
+        </Link>
       </div>
     </section>
   );

@@ -60,6 +60,14 @@ h2{
     border-left: 5px solid #005163;
 }
 
+ToastContainer {
+  background: #005163;
+  color: #e8f0fe;
+  font-size: 1.2rem;
+  border-radius: 12px;
+  padding: 12px 16px;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
   background-color: #18181b;

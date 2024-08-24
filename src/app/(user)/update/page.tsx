@@ -60,7 +60,7 @@ const UpdateProfile = () => {
 
   return (
     <section className="flex flex-col justify-start items-center min-h-screen w-full">
-      <div className="w-full lg:w-[50vw] lg:container flex flex-col justify-start items-center gap-8 mt-16 mb-16 px-7">
+      <div className="w-full lg:w-[50vw] lg:container flex flex-col justify-start items-center gap-8 mt-12 mb-12 px-7">
         <h3 className="text-5xl font-medium text-center">Update Profile</h3>
         <div className="w-full">
           <h4 className="text-3xl font-medium mb-6">

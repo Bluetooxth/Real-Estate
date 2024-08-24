@@ -3,17 +3,22 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
 
-  const handleLogin = async (e:any) => {
+  const handleLogin = async (e: any) => {
     e.preventDefault();
     try {
       if (!email || !password) {
-        console.log("Please fill in all required fields");
+        toast.error("Please fill in all fields", {
+          position: "bottom-center",
+          className: "toast-message",
+        });
         return;
       }
 
@@ -28,18 +33,25 @@ const Login = () => {
       );
 
       if (response.status === 200) {
+        toast.success(response.data.message, {
+          position: "bottom-center",
+          className: "toast-message",
+        });
         setTimeout(() => {
           router.push("/dashboard");
         }, 2000);
       }
     } catch (error) {
-      console.log("An error occurred while logging in");
+      toast.error("Invalid email or password", {
+        position: "bottom-center",
+        className: "toast-message",
+      });
     }
   };
 
   return (
     <section className="flex flex-col justify-start items-center min-h-screen w-full">
-      <div className="w-full lg:w-[50vw] lg:container flex flex-col justify-start items-center gap-8 mt-16 mb-16 px-7">
+      <div className="w-full lg:w-[50vw] lg:container flex flex-col justify-start items-center gap-8 mt-12 mb-12 px-7">
         <h3 className="text-5xl font-medium text-center">Login</h3>
         <div className="w-full">
           <h4 className="text-3xl font-medium mb-6">
@@ -69,7 +81,10 @@ const Login = () => {
             />
             <p>
               {`Don't have an account? `}
-              <Link href="/signup" className="refer hover:underline font-medium">
+              <Link
+                href="/signup"
+                className="refer hover:underline font-medium"
+              >
                 Register
               </Link>
             </p>
@@ -81,6 +96,7 @@ const Login = () => {
             </button>
           </form>
         </div>
+        <ToastContainer />
       </div>
     </section>
   );

@@ -16,12 +16,22 @@ export async function POST(request: Request) {
       );
     }
 
-    const slug = `${title.toLowerCase().replace(/ /g, "-")}-${price}-${location
-      .toLowerCase()
-      .replace(/ /g, "-")}`;
+    const generateSlug = (title: string, price: number, location: string) => {
+      const slugTitle = title
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+      const slugLocation = location
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+      const formattedPrice = price.toString().replace(/[^0-9]/g, "");
+
+      return `${slugTitle}-${formattedPrice}-${slugLocation}`;
+    };
 
     const property = await Properties.create({
-      slug,
+      slug: generateSlug(title, price, location),
       title,
       description,
       price,
@@ -30,8 +40,12 @@ export async function POST(request: Request) {
       owner,
     });
 
-    return NextResponse.json({ property }, { status: 201 });
+    return NextResponse.json({ property }, { status: 200 });
   } catch (error) {
-    return NextResponse.json({ message: "Internal server error" }, { status: 500 });
+    console.log(error);
+    return NextResponse.json(
+      { message: "Internal server error" },
+      { status: 500 }
+    );
   }
 }

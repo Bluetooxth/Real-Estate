@@ -13,7 +13,7 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const user = await User.findById({ username: token.username });
+    const user = await User.findOne({ username: token.username });
 
     return NextResponse.json({ user }, { status: 200 });
   } catch (error) {
