@@ -36,6 +36,7 @@ const Hero = () => {
             src="/images/hero.png"
             alt="Hero"
             className="w-full h-full object-cover heroimg"
+            draggable="false"
           />
         </div>
       </div>

@@ -53,8 +53,7 @@ const Testimonials = () => {
 
   return (
     <section className="flex justify-center items-start w-full">
-      <div className="flex flex-col items-start lg:container w-full gap-5 px-7">
-        <h2 className="text-3xl lg:text-4xl font-medium self-start">Clients Testimonials</h2>
+      <div className="flex flex-col items-start lg:container w-full gap-5">
         <div
           className="w-full overflow-x-auto rounded-lg"
           style={{
