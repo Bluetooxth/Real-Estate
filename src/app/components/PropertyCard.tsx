@@ -22,7 +22,7 @@ const PropertyCard = ({
         <img
           src={image}
           alt={title}
-          className="w-full h-full transition-transform hover:scale-110 slow"
+          className="w-full h-full object-cover object-center"
         />
       </div>
       <div className="flex flex-col justify-start items-start gap-2 p-5 w-full">
