@@ -54,7 +54,7 @@ const Signup = () => {
   return (
     <section className="flex flex-col justify-start items-center min-h-screen w-full">
       <div className="w-full lg:w-[50vw] lg:container flex flex-col justify-start items-center gap-8 mt-12 mb-12 px-7">
-        <h3 className="text-5xl font-medium text-center">Signup</h3>
+        <h3 className="text-4xl font-medium text-center">Signup</h3>
         <div className="w-full">
           <h4 className="text-3xl font-medium mb-6">
             Create a new account

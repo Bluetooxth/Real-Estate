@@ -30,10 +30,10 @@ const Properties = () => {
   return (
     <section className="flex justify-center items-start w-full min-h-screen">
       <div className="flex flex-col justify-start items-center gap-7 lg:container px-7 mt-12 mb-12 w-full">
-        <h3 className="text-5xl font-medium text-center self-center">
+        <h3 className="text-4xl font-medium text-center self-center">
           Properties
         </h3>
-        <h4 className="text-2xl font-medium self-start">
+        <h4 className="text-2xl font-normal self-start">
           Explore our diverse listings, from luxurious homes to affordable
           apartments, and discover your next dream property with us.
         </h4>

@@ -33,7 +33,7 @@ const FAQ = () => {
                     {faqs.map((faq, index) => (
                         <div key={index} className='flex flex-col justify-start items-start gap-2 rounded-lg overflow-hidden cursor-pointer w-full card'>
                             <details className='p-5 w-full'>
-                                <summary className='text-xl font-medium cursor-pointer'>{faq.question}</summary>
+                                <summary className='text-xl font-normal cursor-pointer'>{faq.question}</summary>
                                 <p className='text-lg mt-2'>{faq.answer}</p>
                             </details>
                         </div>

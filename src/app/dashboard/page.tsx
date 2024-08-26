@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import axios from "axios";
+import Link from "next/link";
 
 const Dashboard = () => {
   const [user, setUser] = React.useState({
@@ -35,23 +36,23 @@ const Dashboard = () => {
           </h3>
           <h4 className="text-3xl font-medium">Welcome to the dashboard</h4>
           <div className="font-medium">
-            <p className="flex items-center gap-2 text-2xl font-medium">
+            <p className="flex items-center gap-2 text-2xl font-normal">
               Name:
               <span className="text-xl font-normal">{user.name}</span>
             </p>
-            <p className="flex items-center gap-2 text-2xl font-medium">
+            <p className="flex items-center gap-2 text-2xl font-normal">
               Username:
               <span className="text-xl font-normal">{user.username}</span>
             </p>
-            <p className="flex items-center gap-2 text-2xl font-medium">
+            <p className="flex items-center gap-2 text-2xl font-normal">
               Email:
               <span className="text-xl font-normal">{user.email}</span>
             </p>
           </div>
           <div className="flex gap-5 justify-start items-center w-full">
-            <button className="btn text-lg font-medium px-5 py-2 rounded-lg mt-2 flex gap-2 items-center">
+            <Link href='/update' className="btn text-lg font-medium px-5 py-2 rounded-lg mt-2 flex gap-2 items-center">
               Edit Profile
-            </button>
+            </Link>
             <button className="btn text-lg font-medium px-5 py-2 rounded-lg mt-2 flex gap-2 items-center">
               Logout
             </button>
