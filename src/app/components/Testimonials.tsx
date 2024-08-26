@@ -72,7 +72,9 @@ const Testimonials = () => {
               >
                 <h3 className="text-2xl font-medium">{testimonial.name}</h3>
                 <h4 className="text-xl font-normal">{testimonial.title}</h4>
-                <i className="text-lg">&ldquo{testimonial.content}&ldquo</i>
+                <i className="text-lg">
+                  {testimonial.content}
+                </i>
               </div>
             ))}
           </div>
