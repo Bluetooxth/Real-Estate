@@ -67,7 +67,7 @@ const UpdateProfile = () => {
             Update your profile information
           </h4>
           <form className="flex flex-col gap-4 w-full" onSubmit={updateProfile}>
-            <label htmlFor="name" className="text-xl font-medium">
+            <label htmlFor="name" className="text-xl font-normal">
               Name
             </label>
             <input
@@ -79,7 +79,7 @@ const UpdateProfile = () => {
               onChange={handleChange}
             />
 
-            <label htmlFor="username" className="text-xl font-medium">
+            <label htmlFor="username" className="text-xl font-normal">
               Username
             </label>
             <input
@@ -91,7 +91,7 @@ const UpdateProfile = () => {
               onChange={handleChange}
             />
 
-            <label htmlFor="email" className="text-xl font-medium">
+            <label htmlFor="email" className="text-xl font-normal">
               Email
             </label>
             <input
@@ -103,7 +103,7 @@ const UpdateProfile = () => {
               onChange={handleChange}
             />
 
-            <label htmlFor="password" className="text-xl font-medium">
+            <label htmlFor="password" className="text-xl font-normal">
               Password
             </label>
             <input
@@ -114,7 +114,7 @@ const UpdateProfile = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
 
-            <label htmlFor="newPassword" className="text-xl font-medium">
+            <label htmlFor="newPassword" className="text-xl font-normal">
               New Password
             </label>
             <input

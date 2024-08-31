@@ -8,7 +8,7 @@ const Achievements = () => {
         <p className="text-xl font-normal self-start w-full">
           {`Our achievements speak for themselves. Here's a snapshot of what we've accomplished over the years.`}
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 justify-start items-center w-full">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 justify-start items-stretch w-full">
           <div className="flex flex-col justify-center items-center text-2xl text-center gap-2 px-5 py-3 rounded-lg cursor-pointer card">
             <p className="text-3xl font-medium text-center">{`100+`}</p>
             <p className="text-2xl text-center">{`Agents`}</p>

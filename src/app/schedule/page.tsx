@@ -1,22 +1,46 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ScheduleView = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+  });
+
   const [phone, setPhone] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+  
+  const searchParams = useSearchParams();
   const router = useRouter();
+
+  const propertyName = searchParams.get("propertyName") || "";
+  const propertyLocation = searchParams.get("propertyLocation") || "";
+
+  const fetchUser = async () => {
+    try {
+      const response = await axios.get("/api/user/me/");
+      setUser({
+        name: response.data.user.name,
+        email: response.data.user.email,
+      });
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchUser();
+  }, []);
 
   const handleSchedule = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      if (!name || !email || !phone || !date || !time) {
+      if (!user.name || !user.email || !phone || !date || !time || !propertyName || !propertyLocation) {
         toast.error("Please fill in all fields", {
           position: "bottom-center",
           className: "toast-message",
@@ -25,8 +49,16 @@ const ScheduleView = () => {
       }
 
       const response = await axios.post(
-        "/api/schedule",
-        { name, email, phone, date, time },
+        "/api/schedule/add",
+        {
+          name: user.name,
+          email: user.email,
+          phone,
+          date,
+          time,
+          propertyName,
+          propertyLocation,
+        },
         {
           headers: {
             "Content-Type": "application/json",
@@ -40,7 +72,7 @@ const ScheduleView = () => {
           className: "toast-message",
         });
         setTimeout(() => {
-          router.push("/confirmation");
+          router.push("/dashboard");
         }, 2000);
       }
     } catch (error) {
@@ -54,29 +86,45 @@ const ScheduleView = () => {
   return (
     <section className="flex flex-col justify-start items-center min-h-screen w-full">
       <div className="w-full lg:w-[50vw] lg:container flex flex-col justify-start items-center gap-8 mt-12 mb-12 px-7">
-        <h3 className="text-5xl font-medium text-center">Schedule a Viewing</h3>
+        <h3 className="text-4xl font-medium text-center">Schedule a Viewing</h3>
         <div className="w-full">
           <h4 className="text-3xl font-medium mb-6">Fill in the details to schedule a property viewing</h4>
           <form className="flex flex-col gap-4 w-full" onSubmit={handleSchedule}>
-            <label htmlFor="name" className="text-xl font-medium">Name</label>
+            <label htmlFor="propertyName" className="text-xl font-normal">Property Name</label>
             <input
               type="text"
-              placeholder="Full Name"
+              placeholder="Property Name"
               className="text-lg font-normal px-4 py-2 w-full rounded-lg bg-transparent outline-none input"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={propertyName}
+              readOnly
             />
 
-            <label htmlFor="email" className="text-xl font-medium">Email</label>
+            <label htmlFor="propertyLocation" className="text-xl font-normal">Property Location</label>
+            <input
+              type="text"
+              placeholder="Property Location"
+              className="text-lg font-normal px-4 py-2 w-full rounded-lg bg-transparent outline-none input"
+              value={propertyLocation}
+              readOnly
+            />
+
+            <label htmlFor="name" className="text-xl font-normal">Name</label>
+            <input
+              type="text"
+              placeholder="Name"
+              className="text-lg font-normal px-4 py-2 w-full rounded-lg bg-transparent outline-none input"
+              value={user.name}
+            />
+
+            <label htmlFor="email" className="text-xl font-normal">Email</label>
             <input
               type="email"
               placeholder="Email"
               className="text-lg font-normal px-4 py-2 w-full rounded-lg bg-transparent outline-none input"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={user.email}
             />
 
-            <label htmlFor="phone" className="text-xl font-medium">Phone</label>
+            <label htmlFor="phone" className="text-xl font-normal">Phone</label>
             <input
               type="tel"
               placeholder="Phone Number"
@@ -85,7 +133,7 @@ const ScheduleView = () => {
               onChange={(e) => setPhone(e.target.value)}
             />
 
-            <label htmlFor="date" className="text-xl font-medium">Date</label>
+            <label htmlFor="date" className="text-xl font-normal">Date</label>
             <input
               type="date"
               className="text-lg font-normal px-4 py-2 w-full rounded-lg bg-transparent outline-none input"
@@ -93,7 +141,7 @@ const ScheduleView = () => {
               onChange={(e) => setDate(e.target.value)}
             />
 
-            <label htmlFor="time" className="text-xl font-medium">Time</label>
+            <label htmlFor="time" className="text-xl font-normal">Time</label>
             <input
               type="time"
               className="text-lg font-normal px-4 py-2 w-full rounded-lg bg-transparent outline-none input"

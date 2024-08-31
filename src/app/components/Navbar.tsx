@@ -47,6 +47,12 @@ const Navbar = () => {
               Properties
             </Link>
             <Link
+              href="/listing"
+              className="text-lg py-2 px-3 border-b-2 border-transparent hover:border-slate-200 transition ease-in-out slow"
+            >
+              Listing
+            </Link>
+            <Link
               href="/login"
               className="text-lg py-2 px-3 border-b-2 border-transparent hover:border-slate-200 transition ease-in-out slow"
             >
@@ -91,6 +97,13 @@ const Navbar = () => {
             className="text-lg py-2 px-3 border-b-2 border-transparent hover:border-slate-200 transition ease-in-out slow"
           >
             Properties
+          </Link>
+          <Link
+            href="/listing"
+            onClick={closeNavbar}
+            className="text-lg py-2 px-3 border-b-2 border-transparent hover:border-slate-200 transition ease-in-out slow"
+          >
+            Listing
           </Link>
           <Link
             href="/login"

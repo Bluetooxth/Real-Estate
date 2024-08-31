@@ -60,7 +60,7 @@ const Signup = () => {
             Create a new account
           </h4>
           <form className="flex flex-col gap-4 w-full" onSubmit={handleSignup}>
-            <label htmlFor="name" className="text-xl font-medium">
+            <label htmlFor="name" className="text-xl font-normal">
               Name
             </label>
             <input
@@ -71,7 +71,7 @@ const Signup = () => {
               onChange={(e) => setName(e.target.value)}
             />
 
-            <label htmlFor="username" className="text-xl font-medium">
+            <label htmlFor="username" className="text-xl font-normal">
               Username
             </label>
             <input
@@ -82,7 +82,7 @@ const Signup = () => {
               onChange={(e) => setUsername(e.target.value)}
             />
 
-            <label htmlFor="email" className="text-xl font-medium">
+            <label htmlFor="email" className="text-xl font-normal">
               Email
             </label>
             <input
@@ -93,7 +93,7 @@ const Signup = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
 
-            <label htmlFor="password" className="text-xl font-medium">
+            <label htmlFor="password" className="text-xl font-normal">
               Password
             </label>
             <input

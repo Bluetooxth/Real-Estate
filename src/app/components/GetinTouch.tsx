@@ -10,7 +10,7 @@ const GetInTouch = () => {
           {`Whether you’re buying, selling, or renting, we’re here to help. Reach
           out to us, and we'll respond as soon as possible.`}
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-start items-center w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-start items-stretch w-full">
           <div className="flex flex-col justify-center items-center text-2xl gap-2 px-5 py-3 rounded-lg cursor-pointer text-center card">
             <FaMapMarkerAlt className="text-3xl" />
             <p>{`1234 Real Estate St, City, Country`}</p>

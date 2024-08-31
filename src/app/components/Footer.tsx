@@ -6,20 +6,16 @@ const Footer = () => {
 
     const propertyLinks = [
         {
-            name: "Buy",
-            url: "/buy"
-        },
-        {
-            name: "Sell",
-            url: "/sell"
-        },
-        {
-            name: "Rent",
-            url: "/rent"
-        },
-        {
             name: "Properties",
             url: "/properties"
+        },
+        {
+            name: "List Property",
+            url: "/listing"
+        },
+        {
+            name: "Schedule Viewing",
+            url: "/schedule"
         }
     ]
 
@@ -34,7 +30,7 @@ const Footer = () => {
         },
         {
             name: "About Us",
-            url: "/about-us"
+            url: "/about"
         },
         {
             name: "Careers",
@@ -90,7 +86,7 @@ const Footer = () => {
                     ))}
                 </div>
             </div>
-            <span className="w-full h-[1px] bg-slate-400 mt-3"/>
+            <span className="w-full h-[1px] bg-slate-200 mt-3"/>
             <p className="text-md my-3">All rights reserved @RealEstate</p>
         </footer>
     );

@@ -58,7 +58,7 @@ const Login = () => {
             Please login to your account
           </h4>
           <form className="flex flex-col gap-4 w-full">
-            <label htmlFor="email" className="text-xl font-medium">
+            <label htmlFor="email" className="text-xl font-normal">
               Email
             </label>
             <input
@@ -69,7 +69,7 @@ const Login = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
 
-            <label htmlFor="password" className="text-xl font-medium">
+            <label htmlFor="password" className="text-xl font-normal">
               Password
             </label>
             <input

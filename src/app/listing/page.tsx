@@ -11,10 +11,10 @@ const AddProperty = () => {
   const [price, setPrice] = useState("");
   const [location, setLocation] = useState("");
   const [owner, setOwner] = useState("");
-  const [images, setImages] = useState<File[]>([]);
+  const [imageUrl, setImageUrl] = useState("");
   const router = useRouter();
 
-  const handleAddProperty = async (e: any) => {
+  const handleAddProperty = async (e: React.FormEvent) => {
     e.preventDefault();
     if (
       !title ||
@@ -22,9 +22,9 @@ const AddProperty = () => {
       !price ||
       !location ||
       !owner ||
-      images.length === 0
+      !imageUrl
     ) {
-      toast.error("Please fill in all fields and select images", {
+      toast.error("Please fill in all fields", {
         position: "bottom-center",
         className: "toast-message",
       });
@@ -32,20 +32,18 @@ const AddProperty = () => {
     }
 
     try {
-      const formData = new FormData();
-      formData.append("title", title);
-      formData.append("description", description);
-      formData.append("price", price);
-      formData.append("location", location);
-      formData.append("owner", owner);
+      const propertyData = {
+        title,
+        description,
+        price,
+        location,
+        owner,
+        image: imageUrl,
+      };
 
-      images.forEach((image, index) => {
-        formData.append("images", image);
-      });
-
-      const response = await axios.post("/api/properties/add", formData, {
+      const response = await axios.post("/api/properties/add", propertyData, {
         headers: {
-          "Content-Type": "multipart/form-data",
+          "Content-Type": "application/json",
         },
       });
 
@@ -66,18 +64,6 @@ const AddProperty = () => {
     }
   };
 
-  const handleRemoveImage = (index: number) => {
-    const updatedImages = images.filter((_, i) => i !== index);
-    setImages(updatedImages);
-  };
-
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      const selectedImages = Array.from(e.target.files);
-      setImages((prevImages) => [...prevImages, ...selectedImages]);
-    }
-  };
-
   return (
     <section className="flex flex-col justify-start items-center min-h-screen w-full">
       <div className="w-full lg:w-[50vw] lg:container flex flex-col justify-start items-center gap-8 mt-12 mb-12 px-7">
@@ -90,7 +76,7 @@ const AddProperty = () => {
             className="flex flex-col gap-4 w-full"
             onSubmit={handleAddProperty}
           >
-            <label htmlFor="title" className="text-xl font-medium">
+            <label htmlFor="title" className="text-xl font-normal">
               Title
             </label>
             <input
@@ -101,7 +87,7 @@ const AddProperty = () => {
               onChange={(e) => setTitle(e.target.value)}
             />
 
-            <label htmlFor="description" className="text-xl font-medium">
+            <label htmlFor="description" className="text-xl font-normal">
               Description
             </label>
             <textarea
@@ -111,7 +97,7 @@ const AddProperty = () => {
               onChange={(e) => setDescription(e.target.value)}
             />
 
-            <label htmlFor="price" className="text-xl font-medium">
+            <label htmlFor="price" className="text-xl font-normal">
               Price
             </label>
             <input
@@ -122,7 +108,7 @@ const AddProperty = () => {
               onChange={(e) => setPrice(e.target.value)}
             />
 
-            <label htmlFor="location" className="text-xl font-medium">
+            <label htmlFor="location" className="text-xl font-normal">
               Location
             </label>
             <input
@@ -133,7 +119,7 @@ const AddProperty = () => {
               onChange={(e) => setLocation(e.target.value)}
             />
 
-            <label htmlFor="owner" className="text-xl font-medium">
+            <label htmlFor="owner" className="text-xl font-normal">
               Owner Name
             </label>
             <input
@@ -144,36 +130,16 @@ const AddProperty = () => {
               onChange={(e) => setOwner(e.target.value)}
             />
 
-            <label htmlFor="images" className="text-xl font-medium">
-              Property Images (Max 5)
+            <label htmlFor="imageUrl" className="text-xl font-normal">
+              Image URL
             </label>
             <input
-              type="file"
-              accept="image/*"
-              multiple
+              type="text"
+              placeholder="Image URL"
               className="text-lg font-normal px-4 py-2 w-full rounded-lg bg-transparent outline-none input"
-              onChange={handleImageChange}
+              value={imageUrl}
+              onChange={(e) => setImageUrl(e.target.value)}
             />
-            <p className="text-sm text-gray-500">
-              Max size 200KB per image, up to 5 images
-            </p>
-            <div className="mt-4">
-              {images.map((image, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-between mb-2"
-                >
-                  <span className="text-lg font-normal">{image.name}</span>
-                  <button
-                    type="button"
-                    onClick={() => handleRemoveImage(index)}
-                    className="text-red-500 text-lg font-bold ml-4"
-                  >
-                    &times;
-                  </button>
-                </div>
-              ))}
-            </div>
 
             <button
               type="submit"
