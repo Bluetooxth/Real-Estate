@@ -73,6 +73,9 @@ const Dashboard: React.FC = () => {
   const logout = async () => {
     try {
       await axios.get("/api/user/logout");
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 2000);
     } catch (error) {
       console.error("Error logging out user:", error);
     }
